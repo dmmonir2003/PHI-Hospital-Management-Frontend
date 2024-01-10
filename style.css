@@ -1,0 +1,50 @@
+body{
+    background-color: #ECECEC;
+}
+
+li{
+    list-style: none;
+}
+nav{
+    background-color: rgb(122, 243, 233);
+
+}
+
+.menu{
+    font-size: 20px;
+    font-weight: 600;
+}
+.menu:hover{
+    color: white;
+    cursor: pointer;
+}
+#doc-name{
+    color: #007E85;
+    font-size: 60px;
+    font-weight: 700;
+    
+}
+.banner-container{
+    margin: 100px 100px;
+}
+.banner{
+width: 1240px;
+height: 520px;
+margin: auto;
+background: linear-gradient(66.15deg, rgba(123, 204, 194, 0.33) -5.25%, rgba(72, 190, 206, 0.34) 35.43%, #56BED5 66.69%);
+display:flex;
+align-items: center;
+box-shadow: gray 5px 5px 10px 10px;
+border-radius: 10px;
+
+}
+.banner-text{
+  padding: 50px;
+ 
+}
+
+.banner-img{
+width: 1180px;
+margin-top: -150px;
+
+}
