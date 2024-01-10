@@ -18,7 +18,7 @@ nav{
     color: white;
     cursor: pointer;
 }
-#doc-name{
+.doc-name{
     color: #007E85;
     font-size: 60px;
     font-weight: 700;
@@ -48,3 +48,8 @@ width: 1180px;
 margin-top: -150px;
 
 }
+
+.slider-container{
+    width: 1240px;
+    margin: auto;
+} 
