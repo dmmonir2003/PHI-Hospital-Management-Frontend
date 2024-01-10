@@ -32,5 +32,42 @@ const DisplayServies=(services)=>{
         });
 }
 
+const LoadDoctorAll=()=>{
+    fetch('https://testing-8az5.onrender.com/doctor/list/')
+    .then(res=>res.json())
+    .then(data=>DisplayDoctor(data?.results))
+}
+
+
+const DisplayDoctor=(doctors)=>{
+    doctors?.forEach(doctor=>{
+        console.log(doctor);
+        const parent=document.getElementById('doctor-parant')
+        const div=document.createElement('div')
+        div.classList.add('doctor-card')
+        div.innerHTML=`
+                   <img src="${doctor.image
+                   }" alt="">
+                        <h3 class="card-title">${doctor.full_name
+                        }</h3>
+                        <h5>${doctor.designation[0]}</h5>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt sunt aliquid ex. Corrupti
+                            minima nobis ipsa alias maxime possimus vitae, iusto doloribus? In 
+                            non distinctio.</p>
+                            ${
+                                doctor.specialization.map(sName=>`<button class='rounded bg-warning'>${sName}</button>`)
+                            }
+                        <button class='mt-2'>View Details</button>
+                          `
+
+                          parent.appendChild(div)
+    })
+}
+
+
+
+
+
 
 LoadServices();
+LoadDoctorAll();
