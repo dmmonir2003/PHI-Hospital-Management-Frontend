@@ -53,3 +53,48 @@ margin-top: -150px;
     width: 1240px;
     margin: auto;
 } 
+
+.doctor-container{
+    margin-top: 100px;
+    padding: 30px;
+    margin-bottom: 100px;
+}
+
+#search-doc{
+    border: none;
+    height: 40px;
+    width: 65%;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+.filter-btn{
+    background-color: #06ABA1;
+    color: white;
+    
+}
+
+.doctor-card{
+    text-align: center;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    box-shadow: 4px 4px 8px gray;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.doctor-card img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 15px;
+
+}
+
+.card-title{
+    color: #007E85;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 15px;
+}
