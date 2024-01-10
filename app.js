@@ -32,8 +32,8 @@ const DisplayServies=(services)=>{
         });
 }
 
-const LoadDoctorAll=()=>{
-    fetch('https://testing-8az5.onrender.com/doctor/list/')
+const LoadDoctorAll=(searchValue)=>{
+    fetch(`https://testing-8az5.onrender.com/doctor/list/?search=${searchValue?searchValue:''}`)
     .then(res=>res.json())
     .then(data=>DisplayDoctor(data?.results))
 }
@@ -43,6 +43,7 @@ const DisplayDoctor=(doctors)=>{
     doctors?.forEach(doctor=>{
         console.log(doctor);
         const parent=document.getElementById('doctor-parant')
+        parent.innerHTML = '';
         const div=document.createElement('div')
         div.classList.add('doctor-card')
         div.innerHTML=`
@@ -79,7 +80,7 @@ const loadDesignation=()=>{
     })
 }
 const loadSpecialization=()=>{
-    fetch('https://testing-8az5.onrender.com/doctor/specialization/')
+    fetch(`https://testing-8az5.onrender.com/doctor/specialization/`)
     .then(res=>res.json())
     .then(data=>{
         data.forEach(designation=>{
@@ -92,6 +93,17 @@ const loadSpecialization=()=>{
     })
 }
 
+
+const handleSearch = () => {
+    const searchInput = document.getElementById('search-doc');
+    const value = searchInput.value;
+
+    // Call your function to load doctors here (assuming it's asynchronous)
+    LoadDoctorAll(value);
+
+    // Clear the search input field
+    searchInput.value = '';
+}
 
 loadSpecialization();
 loadDesignation();
