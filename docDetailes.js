@@ -1,6 +1,7 @@
 const getParams=()=>{
     const param=new URLSearchParams(window.location.search).get('doctorId')
-    console.log(param);
+    // console.log(param);
+    loadTime(param);
     fetch(`https://testing-8az5.onrender.com/doctor/list/${param}`)
     .then(res=>res.json())
     .then(data=>displayDetails(data))
@@ -70,6 +71,20 @@ const displayDetails=(doctor)=>{
 }
 
 
+const loadTime=(id)=>{
+   fetch(`https://testing-8az5.onrender.com/doctor/availabletime/?doctor_id=${id}`)
+   .then(res=>res.json())
+   .then(data=>{
+        data.forEach(item=>{
+            const parent=document.getElementById('time-container')
+            const option=document.createElement('option')
+            option.value=item.id;
+            option.innerText=item.name;
+            parent.appendChild(option)
+            
+        })
+   })
+}
 
 
 
