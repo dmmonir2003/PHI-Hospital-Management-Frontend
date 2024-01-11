@@ -50,8 +50,8 @@ margin-top: -150px;
 }
 
 .slider-container{
-    width: 1240px;
-    margin: auto;
+   
+    
 } 
 
 .doctor-container{
@@ -99,4 +99,11 @@ margin-top: -150px;
     font-size: 30px;
     font-weight: 700;
     margin-top: 15px;
+}
+
+#nodata{
+    display: none;
+}
+#loader{
+    display: none;
 }

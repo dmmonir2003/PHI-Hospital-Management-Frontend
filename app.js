@@ -9,19 +9,17 @@ const LoadServices=()=>{
 
 const DisplayServies=(services)=>{
         services.forEach(service => {
-            console.log(service);
+            // console.log(service);
             const parant=document.getElementById('servies-container')
             const li=document.createElement('li')
             li.innerHTML=`
             <div class="card shadow h-100">
-                        <div class="ratio ratio-16x9">
-                            <img src="${service.image
-                            }" class="card-img-top" loading="lazy" alt="...">
+                    <div class="ratio ratio-16x9">
+             <img src="${service.image}" class="card-img-top" loading="lazy" alt="...">
                         </div>
                         <div class="card-body p-3 p-xl-5">
                             <h3 class="card-title h5">${service.name}</h3>
-                            <p class="card-text">${service.description.slice(0,140)
-                            }</p>
+            <p class="card-text">${service.description.slice(0,140)}</p>
                             <div><a href="#" class="btn btn-primary">Details</a>
                             </div>
                         </div>
@@ -33,24 +31,33 @@ const DisplayServies=(services)=>{
 }
 
 const LoadDoctorAll=(searchValue)=>{
-    fetch(`https://testing-8az5.onrender.com/doctor/list/?search=${searchValue?searchValue:''}`)
+    document.getElementById('loader').style.display='block';
+    console.log(searchValue);
+    fetch(`https://testing-8az5.onrender.com/doctor/list/?search=${searchValue ? searchValue:''}`)
     .then(res=>res.json())
     .then(data=>DisplayDoctor(data?.results))
 }
 
 
 const DisplayDoctor=(doctors)=>{
+    const parent=document.getElementById('doctor-parant')
+    parent.innerHTML = '';
+    if (!doctors || doctors.length===0){
+        document.getElementById('nodata').style.display='block';
+        document.getElementById('loader').style.display='none';
+    }else{
+        document.getElementById('nodata').style.display='none'
+        document.getElementById('loader').style.display='none';
+    }
+
     doctors?.forEach(doctor=>{
-        console.log(doctor);
-        const parent=document.getElementById('doctor-parant')
-        parent.innerHTML = '';
+        // console.log(doctor);
+
         const div=document.createElement('div')
         div.classList.add('doctor-card')
         div.innerHTML=`
-                   <img src="${doctor.image
-                   }" alt="">
-                        <h3 class="card-title">${doctor.full_name
-                        }</h3>
+                   <img src="${doctor.image}" alt="">
+            <h3 class="card-title">${doctor.full_name}</h3>
                         <h5>${doctor.designation[0]}</h5>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt sunt aliquid ex. Corrupti
                             minima nobis ipsa alias maxime possimus vitae, iusto doloribus? In 
@@ -67,14 +74,19 @@ const DisplayDoctor=(doctors)=>{
 
 
 const loadDesignation=()=>{
-    fetch('https://testing-8az5.onrender.com/doctor/designation/')
+    fetch('http://testing-8az5.onrender.com/doctor/designation/')
     .then(res=>res.json())
     .then(data=>{
         data.forEach(designation=>{
             const parent=document.getElementById('designation-parent')
             const li =document.createElement('li')
             li.classList.add('dropdown-item')
-            li.innerText=designation.name;
+            li.innerHTML=`
+            
+            <li onclick="LoadDoctorAll('${designation.name}')">${designation.name}</li>
+            
+            `
+
             parent.appendChild(li)
         })
     })
@@ -83,15 +95,23 @@ const loadSpecialization=()=>{
     fetch(`https://testing-8az5.onrender.com/doctor/specialization/`)
     .then(res=>res.json())
     .then(data=>{
-        data.forEach(designation=>{
+        data.forEach(specialization=>{
             const parent=document.getElementById('specialization-parent')
             const li =document.createElement('li')
             li.classList.add('dropdown-item')
-            li.innerText=designation.name;
+            li.innerHTML=`
+            
+            <li onclick="LoadDoctorAll('${specialization.name}')">${specialization.name}</li>
+            
+            `
             parent.appendChild(li)
         })
     })
 }
+
+
+
+
 
 
 const handleSearch = () => {
@@ -105,7 +125,8 @@ const handleSearch = () => {
     searchInput.value = '';
 }
 
+
+LoadDoctorAll();
 loadSpecialization();
 loadDesignation();
 LoadServices();
-LoadDoctorAll();
