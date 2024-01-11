@@ -57,7 +57,11 @@ const displayDetails=(doctor)=>{
                 nihil dicta
                 veritatis accusantium a facilis fugit sit!</p>
             <h3 class="">Fees: ${doctor.fee} BDT</h3>
-            <button><a class="" href="#">Take Appointment</a></button>
+
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Take Appointment
+  </button>
+            
         </div>
     
     `
