@@ -1,0 +1,15 @@
+.login-container{
+    height: 100vh;
+    
+
+}
+.registration-container{
+    height: 100vh;
+}
+.img-container img{
+    width: 100%;
+}
+
+.input-container form input{
+ border: none;
+}
