@@ -4,7 +4,31 @@ const getParams=()=>{
     fetch(`https://testing-8az5.onrender.com/doctor/list/${param}`)
     .then(res=>res.json())
     .then(data=>displayDetails(data))
+
+    fetch(`https://testing-8az5.onrender.com/doctor/review/?doctor_id=${param}`)
+    .then(res=>res.json())
+    .then(data=>doctorReview(data))
 }
+
+
+const doctorReview=(reviews)=>{
+    reviews?.forEach(review=>{
+        const parent=document.getElementById('doctor-review-contaier')
+        const div=document.createElement('div')
+        div.classList.add('review-card')
+        div.innerHTML=`
+        <img src="./Images/girl.png" alt="">
+                    <h2 class="card-title">${review.reviewer}</h2>
+                    <h5 class="fond-semibold">${review.doctor}</h5>
+                    <p>${review.body.slice(0,70)}</p>
+                    <p>${review.rating}</p>
+        
+        `
+        parent.appendChild(div)
+    })
+}
+
+
 
 const displayDetails=(doctor)=>{
     console.log(doctor);
@@ -40,6 +64,8 @@ const displayDetails=(doctor)=>{
     parent.appendChild(div)
 
 }
+
+
 
 
 
