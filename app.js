@@ -32,7 +32,7 @@ const DisplayServies=(services)=>{
 
 const LoadDoctorAll=(searchValue)=>{
     document.getElementById('loader').style.display='block';
-    console.log(searchValue);
+    // console.log(searchValue);
     fetch(`https://testing-8az5.onrender.com/doctor/list/?search=${searchValue ? searchValue:''}`)
     .then(res=>res.json())
     .then(data=>DisplayDoctor(data?.results))

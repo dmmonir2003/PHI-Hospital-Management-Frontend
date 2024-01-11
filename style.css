@@ -122,14 +122,24 @@ margin-top: -150px;
     margin-top: 8px;
 }
 
-.slider-container{
-    
-   
-}
-
 .footer-container{
     background: linear-gradient(66.15deg, #1CA8C7 -5.25%, #439FA5 46.76%, #4C7D8C 98.77%);
     color: white;
     padding: 50px;
     margin-top: 70px;
+}
+
+
+/* -----------------doc detailes css ---------- */
+
+.doc-detailes-img img{
+   width: 150px;
+   height: 150px;
+   border-radius: 100px;
+}
+
+.doc-detailes-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
