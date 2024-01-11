@@ -88,4 +88,36 @@ const loadTime=(id)=>{
 
 
 
+const handleAppointment=()=>{
+    const param=new URLSearchParams(window.location.search).get('doctorId')
+    const status=document.getElementsByName('status')
+    const selected=Array.from(status).find((button)=>button.checked)
+    const symptom=document.getElementById('symptom').value;
+    const time=document.getElementById('time-container')
+    const selectedTime=time.options[time.selectedIndex]
+    // console.log(selected,symptom,selectedTime);
+
+    const info={
+        appointment_type: selected.value,
+        appointment_status: "Pending",
+        time: selectedTime.value,
+        symptom: symptom,
+        cancel: false,
+        patient: 1,
+        doctor: param,
+    }
+
+
+    fetch("https://testing-8az5.onrender.com/appointment/",{
+        method:"POST",
+        headers:{'content-type':'application/json'},
+        body:JSON.stringify(info),
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+    })
+}
+
+
 getParams();
