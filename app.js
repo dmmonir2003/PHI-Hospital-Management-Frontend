@@ -74,7 +74,7 @@ const DisplayDoctor=(doctors)=>{
 
 
 const loadDesignation=()=>{
-    fetch('http://testing-8az5.onrender.com/doctor/designation/')
+    fetch('https://testing-8az5.onrender.com/doctor/designation/')
     .then(res=>res.json())
     .then(data=>{
         data.forEach(designation=>{
@@ -110,9 +110,28 @@ const loadSpecialization=()=>{
 }
 
 
+const loadReviews=()=>{
+    fetch('https://testing-8az5.onrender.com/doctor/review/')
+    .then(res=>res.json())
+    .then(data=>displayReview(data))
+}
 
-
-
+const displayReview=(reviews)=>{
+    reviews?.forEach(review=>{
+        const parent=document.getElementById('review-contaier')
+        const div=document.createElement('div')
+        div.classList.add('review-card')
+        div.innerHTML=`
+        <img src="./Images/girl.png" alt="">
+                    <h2 class="card-title">${review.reviewer}</h2>
+                    <h5 class="fond-semibold">${review.doctor}</h5>
+                    <p>${review.body.slice(0,70)}</p>
+                    <p>${review.rating}</p>
+        
+        `
+        parent.appendChild(div)
+    })
+}
 
 const handleSearch = () => {
     const searchInput = document.getElementById('search-doc');
@@ -130,3 +149,4 @@ LoadDoctorAll();
 loadSpecialization();
 loadDesignation();
 LoadServices();
+loadReviews();

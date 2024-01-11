@@ -49,10 +49,7 @@ margin-top: -150px;
 
 }
 
-.slider-container{
-   
-    
-} 
+
 
 .doctor-container{
     margin-top: 100px;
@@ -106,4 +103,26 @@ margin-top: -150px;
 }
 #loader{
     display: none;
+}
+
+.review-card{
+    text-align: center;
+    align-items: center;
+    width: 250px;
+    height: 300px;
+    box-shadow: 4px 4px 8px gray;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.review-card img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 8px;
+}
+
+.slider-container{
+    
+   
 }
