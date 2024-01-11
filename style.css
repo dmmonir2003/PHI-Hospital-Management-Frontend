@@ -126,3 +126,10 @@ margin-top: -150px;
     
    
 }
+
+.footer-container{
+    background: linear-gradient(66.15deg, #1CA8C7 -5.25%, #439FA5 46.76%, #4C7D8C 98.77%);
+    color: white;
+    padding: 50px;
+    margin-top: 70px;
+}
