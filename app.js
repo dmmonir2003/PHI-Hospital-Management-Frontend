@@ -65,7 +65,9 @@ const DisplayDoctor=(doctors)=>{
                             ${
                                 doctor.specialization.map(sName=>`<button class='rounded bg-warning'>${sName}</button>`)
                             }
-                        <button class='mt-2'>View Details</button>
+                        <button  class='mt-2'>
+                        <a target="_blank" href="docDetailes.html?doctorId=${doctor.id}">View Details</a>
+                        </button>
                           `
 
                           parent.appendChild(div)
