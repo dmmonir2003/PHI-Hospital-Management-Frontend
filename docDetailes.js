@@ -97,13 +97,15 @@ const handleAppointment=()=>{
     const selectedTime=time.options[time.selectedIndex]
     // console.log(selected,symptom,selectedTime);
 
+    const patient_id=localStorage.getItem('patient_id')
+
     const info={
         appointment_type: selected.value,
         appointment_status: "Pending",
         time: selectedTime.value,
         symptom: symptom,
         cancel: false,
-        patient: 1,
+        patient: patient_id,
         doctor: param,
     }
 
@@ -116,6 +118,16 @@ const handleAppointment=()=>{
     .then(res=>res.json())
     .then(data=>{
         console.log(data);
+    })
+}
+
+
+const getPatientId=()=>{
+    const user_id=localStorage.getItem('user_id')
+    fetch(`https://testing-8az5.onrender.com/patient/list/?user_id=${user_id}`)
+    .then(res=>res.json())
+    .then(data=>{
+        localStorage.setItem('patient_id',data[0].id)
     })
 }
 
