@@ -148,3 +148,19 @@ margin-top: -150px;
     margin: auto;
     margin-top: 100px;
 }
+
+
+/* user detailes csss start */
+
+.user-detailes-container{
+    display: flex;
+    align-items: center;
+    margin: 50px;
+} 
+
+.user-detailes-container-img img{
+   width: 150px;
+   height: 150px;
+   border-radius: 100px;
+   margin-right: 20px;
+}

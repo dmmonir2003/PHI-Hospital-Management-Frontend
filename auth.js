@@ -12,7 +12,7 @@
     last_name,
     email,
     password,
-    confirm_password
+    confirm_password,
     }
 
 
@@ -64,9 +64,16 @@ const handleLogin=(event)=>{
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
-            localStorage.setItem({'token':data.token})
-            localStorage.setItem({'id':data.user_id})
+            if(data.user_id && data.token){
+                localStorage.setItem("token",data.token);
+                localStorage.setItem("user_id",data.user_id);
+                window.location.href='index.html'
+            }
         })
     }
 
 }
+
+
+// password:123456monir@
+// username:shuvo
