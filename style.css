@@ -164,3 +164,26 @@ margin-top: -150px;
    border-radius: 100px;
    margin-right: 20px;
 }
+
+/* pdf     css */
+
+
+
+.doctor-pdf{
+    width: 350px;
+    height: 400px;
+    box-shadow: 4px 4px 8px gray;
+    padding: 30px;
+    background-color: #439FA5;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+.symptom-pdf{
+    padding: 30px;
+    width: 50%;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+}

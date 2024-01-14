@@ -132,4 +132,8 @@ const getPatientId=()=>{
 }
 
 
+const handlePdf=()=>{
+    
+}
+
 getParams();
